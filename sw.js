@@ -1,6 +1,6 @@
 'use strict';
-const CACHE='trakway-studio-2.0.0-r1';
-const FILES=['./','./index.html','./styles.css','./app.js','./core.js','./config.js','./leaflet.js','./leaflet.css','./manifest.webmanifest','./sunbelt-logo.png','./jweds-white.png','./icon-192.png','./icon-512.png','./icon-maskable.png'];
+const CACHE='trakway-studio-3.0.0-r1';
+const FILES=['./','./index.html','./styles.css?v=3','./app.js?v=3','./core.js?v=3','./drawing-core.js?v=3','./map-reference.js?v=3','./drawing.css?v=3','./config.js','./leaflet.js','./leaflet.css','./manifest.webmanifest','./sunbelt-logo.png','./jweds-white.png','./icon-192.png','./icon-512.png','./icon-maskable.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES)))});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('trakway-studio-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',event=>{
